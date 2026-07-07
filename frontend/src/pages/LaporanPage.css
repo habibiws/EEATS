@@ -1,0 +1,476 @@
+/* =========================================================================
+   LAPORAN PAGE PREMIUM UI & RESPONSIVENESS (4-TIER)
+========================================================================= */
+
+/* ─── FILTER BAR (PREMIUM) ─── */
+.filter-bar-laporan {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(15, 35, 64, 0.03);
+}
+
+.filter-label {
+  font-size: calc(12px * var(--font-scale, 1));
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-select, .filter-input {
+  width: auto;
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: calc(13px * var(--font-scale, 1));
+  font-weight: 500;
+  transition: all 0.2s;
+  background: #F8FAFC;
+}
+.filter-select:focus, .filter-input:focus {
+  background: var(--white);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(15, 35, 64, 0.1);
+  outline: none;
+}
+
+/* ─── STATS SUMMARY BAR (PREMIUM) ─── */
+.laporan-summary-bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(15, 35, 64, 0.03);
+}
+
+.laporan-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.laporan-stat-item.interactive {
+  cursor: pointer;
+}
+.laporan-stat-item.interactive:hover {
+  background: #F8FAFC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(15, 35, 64, 0.05);
+}
+.laporan-stat-item.interactive:hover .stat-icon {
+  transform: scale(1.1);
+}
+
+.laporan-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.laporan-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+.laporan-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: calc(20px * var(--font-scale, 1));
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+.laporan-stat-label {
+  font-size: calc(11px * var(--font-scale, 1));
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.laporan-stat-hover-text {
+  position: absolute;
+  bottom: 4px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--navy-text);
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.2s;
+}
+.laporan-stat-item.interactive:hover .laporan-stat-hover-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── DATA TABLE (PREMIUM) ─── */
+.laporan-table-wrapper {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 15px rgba(15, 35, 64, 0.03);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.laporan-table-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F8FAFC;
+}
+
+.laporan-table-title {
+  font-size: calc(16px * var(--font-scale, 1));
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th {
+  background: #F1F5F9;
+  color: var(--text2);
+  font-size: calc(12px * var(--font-scale, 1));
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.user-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.user-table tr:last-child td {
+  border-bottom: none;
+}
+
+.user-table tbody tr {
+  transition: background 0.2s;
+}
+
+/* Mobile modern list item */
+.modern-laporan-item {
+  display: none;
+}
+
+/* ─── EXPORT GRID (PREMIUM) ─── */
+.export-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 16px; 
+}
+.export-card {
+  background: var(--white); 
+  border: 1px solid var(--border); 
+  border-radius: 16px;
+  padding: 20px; 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(15,35,64,0.02);
+}
+.export-card:hover { 
+  border-color: var(--navy-text); 
+  transform: translateY(-4px); 
+  box-shadow: 0 12px 25px rgba(15,35,64,0.08); 
+}
+
+.export-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; 
+  font-size: calc(24px * var(--font-scale, 1)); flex-shrink: 0;
+}
+.export-info { flex: 1; }
+.export-title { font-size: calc(15px * var(--font-scale, 1)); font-weight: 800; color: var(--navy-text); }
+.export-sub { font-size: calc(12px * var(--font-scale, 1)); color: var(--text3); margin-top: 4px; font-weight: 500; }
+.export-btn-wrap { flex-shrink: 0; }
+
+/* ─── 4-TIER RESPONSIVENESS ─── */
+
+/* ─── Breakpoint 1: Desktop Large (>1200px) ─── */
+/* Default styles above */
+
+/* ─── Breakpoint 2: Desktop Small / Tablet Landscape (992px to 1200px) ─── */
+@media (max-width: 1200px) {
+  .laporan-summary-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─── Breakpoint 3: Tablet Portrait (768px to 992px) ─── */
+@media (max-width: 992px) {
+  .laporan-summary-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filter-select, .filter-input {
+    min-width: 130px;
+  }
+  .user-table-wrap {
+    overflow-x: auto;
+  }
+}
+
+/* ─── Breakpoint 4: Mobile (<768px) ─── */
+@media (max-width: 768px) {
+  .filter-bar-laporan {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .filter-label {
+    display: none;
+  }
+  .filter-select, .filter-input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .laporan-summary-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .export-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Table to Card Layout Transformation */
+  .user-table {
+    display: none; /* Hide traditional table on mobile */
+  }
+
+  .modern-laporan-item {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    background: var(--white);
+  }
+  
+  .mli-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .mli-name {
+    font-size: calc(15px * var(--font-scale, 1));
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .mli-role {
+    font-size: calc(12px * var(--font-scale, 1));
+    color: var(--text3);
+    text-transform: capitalize;
+    margin-top: 2px;
+  }
+
+  .mli-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #F8FAFC;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .mli-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .mli-stat-val {
+    font-size: calc(16px * var(--font-scale, 1));
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .mli-stat-label {
+    font-size: calc(10px * var(--font-scale, 1));
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+
+  .mli-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  /* Modal Fullscreen on Mobile */
+  .modal-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* =========================================================================
+   PRINT STYLES
+========================================================================= */
+.print-header { display: none; }
+
+@media print {
+  @page { margin: 1.5cm; size: landscape; }
+  
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+  
+  .sidebar,
+  .navbar,
+  .filter-bar-laporan,
+  .export-grid,
+  .btn,
+  select,
+  .filter-select,
+  .modal-overlay,
+  .accessibility-menu-trigger,
+  .header-actions,
+  .laporan-header,
+  .laporan-summary-bar {
+    display: none !important;
+  }
+
+  .layout-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .content-wrap {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .card, .laporan-table-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+  
+  .print-header {
+    display: block !important;
+    margin-bottom: 20px;
+  }
+  .print-header-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .print-logo {
+    width: 140px;
+    height: auto;
+  }
+  .print-header-text h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000;
+  }
+  .print-header-text p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #000;
+  }
+  .print-hr {
+    border: none;
+    border-top: 3px solid #000;
+    border-bottom: 1px solid #000;
+    height: 2px;
+    margin-bottom: 10px;
+  }
+  .print-meta {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .user-table {
+    display: table !important; /* Force show table on print even if hidden on mobile view */
+    border: 1px solid #000 !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  .modern-laporan-item {
+    display: none !important; /* Hide mobile cards on print */
+  }
+
+  .user-table th {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .user-table td {
+    padding: 6px 8px !important;
+    border: 1px solid #000 !important;
+    color: #000 !important;
+  }
+  
+  .user-table td:last-child, .user-table th:last-child {
+    display: none !important;
+  }
+  .user-table .tag-navy, .user-table .dot {
+    background: transparent !important;
+    color: #000 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  
+  .user-table td span {
+    color: #000 !important;
+  }
+}
