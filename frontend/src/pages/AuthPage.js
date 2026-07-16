@@ -256,7 +256,7 @@ export default function AuthPage() {
               <>
                 <h2 className="auth-left-title">{loginStep === 'email' ? 'Login' : 'Selamat Datang'}</h2>
                 <p className="auth-left-subtitle">
-                  {loginStep === 'email' ? 'Gunakan email institusi Anda' : 'Masukkan kata sandi untuk melanjutkan'}
+                  {loginStep === 'email' ? 'Gunakan email Anda' : 'Masukkan kata sandi untuk melanjutkan'}
                 </p>
               </>
             )}
