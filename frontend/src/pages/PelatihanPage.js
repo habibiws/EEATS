@@ -15,8 +15,8 @@ export default function PelatihanPage() {
   const { showAlert, showConfirm } = useModalStore();
   
   // Filter & Sort States
-  const [activeTW, setActiveTW] = useState(1);
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [activeTW, setActiveTW] = useState('all');
+  const [selectedYear, setSelectedYear] = useState('all');
   const [sortBy, setSortBy] = useState('tanggal_mulai');
   const [sortOrder, setSortOrder] = useState('desc');
 

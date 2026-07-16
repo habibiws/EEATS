@@ -61,7 +61,7 @@ export default function LaporanCategoryPage() {
   const navigate = useNavigate();
   const { user: currentUser } = useAuthStore();
 
-  const year = searchParams.get('tahun') || new Date().getFullYear().toString();
+  const year = searchParams.get('tahun') || '';
   const subKkId = searchParams.get('sub_kk_id') || '';
 
   const [data, setData] = useState([]);

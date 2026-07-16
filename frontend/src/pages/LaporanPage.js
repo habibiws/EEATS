@@ -19,8 +19,8 @@ export default function LaporanPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [selectedYear, setSelectedYear] = useState(() => {
-    // Sesuai filter tahun dashboard (default "semua tahun" alias "" jika kosong, atau tahun saat ini)
-    return searchParams.has('tahun') ? searchParams.get('tahun') : new Date().getFullYear().toString();
+    // Sesuai filter tahun dashboard (default "semua tahun" alias "")
+    return searchParams.has('tahun') ? searchParams.get('tahun') : '';
   });
 
   const [filters, setFilters] = useState(() => {
@@ -44,7 +44,7 @@ export default function LaporanPage() {
   // Sync URL search params with local states (essential for dashboard clicking and backward navigation)
   useEffect(() => {
     const urlSubKk = searchParams.get('sub_kk_id') || '';
-    const urlYear = searchParams.has('tahun') ? searchParams.get('tahun') : new Date().getFullYear().toString();
+    const urlYear = searchParams.has('tahun') ? searchParams.get('tahun') : '';
     
     if (urlSubKk !== filters.sub_kk_id) {
       setFilters(prev => ({ ...prev, sub_kk_id: urlSubKk }));
