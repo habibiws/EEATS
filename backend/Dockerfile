@@ -20,6 +20,9 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Configure Cloudflare mirror to speed up and prevent connection timeouts
+RUN composer config -g repos.packagist composer https://packagist.cloudflare.com
+
 # Set working directory
 WORKDIR /var/www
 
