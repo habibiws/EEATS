@@ -249,7 +249,7 @@ export default function AuthPage() {
         {/* LEFT COLUMN: BRANDING & DESCRIPTIVE STATE */}
         {/* ========================================================================= */}
         <div className="auth-card-left">
-          <img src={logoBtfb} alt="Logo EEATS" className="auth-card-logo" />
+          <img src={logoBtfb} alt="Logo EEAT" className="auth-card-logo" />
           
           <div className="auth-left-content fade-in">
             {mode === 'login' && (
